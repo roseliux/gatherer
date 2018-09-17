@@ -1,5 +1,5 @@
 class CreatesProject
-  attr_accessor :name, :project
+  attr_accessor :name, :project, :task_string
 
   def initialize(name: '', task_string: '')
     @name = name
@@ -20,8 +20,7 @@ class CreatesProject
   end
 
   def size_as_integer(size_string)
-    size = size_string.to_i
-    size = size <= 0 ? 1 : size
+    size_string.to_i <= 0 ? 1 : size_string.to_i
   end
 
   def create
