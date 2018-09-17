@@ -1,0 +1,36 @@
+AllCops:
+  TargetRubyVersion: 2.5.0
+  Include:
+    - '**/Gemfile'
+    - 'app/**/*'
+    - 'lib/**/*'
+  Exclude:
+    - 'app/assets/**/*'
+    - 'app/views/**/*'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'spec/**/*'
+    - 'vendor/**/*'
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/LineLength:
+  Max: 100
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+Style/ModuleFunction:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Layout/EndOfLine:
+  Enabled: false
+  EnforcedStyle: lf
+
+Style/Documentation:
+  Enabled: false
