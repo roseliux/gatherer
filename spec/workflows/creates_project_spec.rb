@@ -65,5 +65,15 @@ RSpec.describe CreatesProject do
       specify { expect(creator.project.tasks.size).to eq(2) }
       specify { expect(creator.project).not_to be_a_new_record }
     end
+
+    describe 'failure cases' do
+      let(:creator) { CreatesProject.new(name: name, task_string: '') }
+
+      describe 'failes when trying to save a project with no name' do
+        let(:name) { '' }
+        before(:example) { creator.create }
+        specify { expect(creator).not_to be_a_success }
+      end
+    end
   end
 end

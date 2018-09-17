@@ -2,8 +2,9 @@ class CreatesProject
   attr_accessor :name, :project, :task_string
 
   def initialize(name: '', task_string: '')
-    @name = name
+    @name        = name
     @task_string = task_string
+    @success     = false
   end
 
   def build
@@ -25,6 +26,10 @@ class CreatesProject
 
   def create
     build
-    project.save
+    @success = project.save
+  end
+
+  def success?
+    @success
   end
 end

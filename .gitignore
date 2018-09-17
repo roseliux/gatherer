@@ -33,3 +33,6 @@
 
 # rubymine files
 .idea
+
+# spec examples.txt
+spec/examples.txt
