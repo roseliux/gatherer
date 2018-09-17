@@ -13,20 +13,15 @@ class CreatesProject
   end
 
   def convert_string_to_tasks
-    tasks = []
-    @task_string.split(/\n/).each do |string|
-      task = convert_string_to_task(string)
-      tasks << task if task
+    @task_string.split(/\n/).map do |one_task|
+      title, size = one_task.split(':')
+      Task.new(title: title, size: size_as_integer(size))
     end
-    tasks
   end
 
-  def convert_string_to_task(string)
-    title = string.split(':')[0]
-    return if title.nil?
-    size = string.split(':')[1].to_i
-    size = size.to_i <= 0 ? 1 : size
-    Task.new(title: title, size: size)
+  def size_as_integer(size_string)
+    size = size_string.to_i
+    size = size <= 0 ? 1 : size
   end
 
   def create
