@@ -1,4 +1,5 @@
 class Task < ApplicationRecord
+  include Sizeable
   belongs_to :project
 
   def part_of_velocity?

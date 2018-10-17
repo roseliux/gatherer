@@ -10,7 +10,7 @@ RSpec.describe 'adding a project', type: :system do
     @project = Project.find_by(name: 'Project Runway')
 
     expect(page).to have_selector("#project_#{@project.id} .name", text: @project.name)
-    expect(page).to have_selector("#project_#{@project.id} .total-size", text: @project.total_size)
+    expect(page).to have_selector("#project_#{@project.id} .total-size", text: @project.size)
   end
 
   it 'does not allowed a user to create a project without a name' do
